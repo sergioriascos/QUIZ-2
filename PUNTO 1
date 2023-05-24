@@ -1,27 +1,20 @@
 #include <stdio.h>
 #include <string.h>
-
 void getRevertText(char* texto) {
     int longitud = strlen(texto);
     int i;
-
     for (i = 0; i < longitud / 2; i++) {
         char temp = texto[i];
         texto[i] = texto[longitud - 1 - i];
         texto[longitud - 1 - i] = temp;
     }
 }
-
 int main() {
     char texto[100];
-
     printf("Ingrese un texto: ");
     fgets(texto, sizeof(texto), stdin);
     texto[strcspn(texto, "\n")] = '\0';
-
     getRevertText(texto);
-
     printf("Texto revertido: %s\n", texto);
-
     return 0;
 }
