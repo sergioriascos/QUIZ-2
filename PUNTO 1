@@ -4,7 +4,7 @@ Algoritmo DivisionConValidacion
 	Escribir "Ingrese el divisor:"
 	Leer divisor
 	Si divisor = 0 Entonces
-	Escribir "LoLa - Mento por 0 no se puede dividir"
+	Escribir "LoLa - Mento por 0 no se puede dividir. Okles."
 	Sino
 	cociente <- dividendo / divisor
 	Escribir "El cociente es:", cociente
