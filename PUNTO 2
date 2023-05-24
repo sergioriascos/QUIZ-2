@@ -1,23 +1,20 @@
 #include <stdio.h>
-
-int getInvertNumber(int numero) {
-	int invertido = 0;
-	
-	while (numero != 0) {
-		invertido = (invertido * 10) + (numero % 10);
-		numero /= 10;
-	}
-	
-	return invertido;
+#include <string.h>
+void getRevertText(char* texto) {
+    int longitud = strlen(texto);
+    int i;
+    for (i = 0; i < longitud / 2; i++) {
+        char temp = texto[i];
+        texto[i] = texto[longitud - 1 - i];
+        texto[longitud - 1 - i] = temp;
+    }
 }
-
 int main() {
-	int numero;
-	printf("Ingrese un número: ");
-	scanf("%d", &numero);
-	
-	int resultado = getInvertNumber(numero);
-	printf("El número invertido es: %d\n", resultado);
-	
-	return 0;
+    char texto[100];
+    printf("Ingrese un texto: ");
+    fgets(texto, sizeof(texto), stdin);
+    texto[strcspn(texto, "\n")] = '\0';
+    getRevertText(texto);
+    printf("Texto revertido: %s\n", texto);
+    return 0;
 }
